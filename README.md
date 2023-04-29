@@ -6,7 +6,7 @@ Vite + Svelte app that uses Azure Cognitive Services to analyse an image and pro
 
 ## Demo Recording
 
-
+https://user-images.githubusercontent.com/31401437/235306227-ad0e5f3a-1533-4d59-ad6b-32cdfd6b1a32.mp4
 
 ## Steps to Run
 
