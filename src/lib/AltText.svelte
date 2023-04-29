@@ -11,7 +11,10 @@ async function generateAltText() {
 
 function resetScreen()
 {
-    window.location.reload();
+    document.querySelector('#imageInput').style.display = 'block';
+    document.querySelector('#image').style.display = 'none';
+    document.querySelector('#altText').style.display = 'none';
+    document.querySelector('#resetButton').style.display = 'none';
 }
 
 </script>
