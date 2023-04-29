@@ -45,7 +45,7 @@ function resetScreen()
         text-align: center;
         padding: 3vh 0;
         border: 2px solid black;
-        border-radius: 5%;
+        border-radius: 10px;
     }
 
     #altTextBox {
