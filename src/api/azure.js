@@ -46,8 +46,6 @@ export const azure = {
 
         const responseBody = await response.json();
 
-        console.log(responseBody);
-
         return responseBody.captionResult.text;
     }
 };
