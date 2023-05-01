@@ -1,3 +1,7 @@
+<a href="https://alttext.in" target="_blank">
+    <img src="https://user-images.githubusercontent.com/31401437/235480543-f89912d6-19bf-4761-9f22-86c2ea523b46.png" alt="Alt Text Generator" width="1000">
+</a>
+
 # Alt Text Generator
 
 ## Description
