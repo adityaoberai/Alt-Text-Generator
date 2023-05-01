@@ -49,7 +49,7 @@ function resetScreen()
         display: none;
         text-align: center;
         padding: 3vh 0;
-        border: 2px solid black;
+        border: 2px solid #242424;
         border-radius: 10px;
     }
 
