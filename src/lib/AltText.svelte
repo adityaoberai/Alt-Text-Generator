@@ -11,10 +11,12 @@ async function generateAltText() {
 
 function resetScreen()
 {
+    document.querySelector('#imageInput').value = '';
     document.querySelector('#imageInput').style.display = 'block';
     document.querySelector('#image').style.display = 'none';
     document.querySelector('#altText').style.display = 'none';
     document.querySelector('#resetButton').style.display = 'none';
+    altText = 'Alt text will load here shortly...';
 }
 
 </script>
@@ -47,7 +49,7 @@ function resetScreen()
         display: none;
         text-align: center;
         padding: 3vh 0;
-        border: 2px solid black;
+        border: 2px solid #242424;
         border-radius: 10px;
     }
 
