@@ -4,48 +4,56 @@ const apiKey = import.meta.env.VITE_AZURECV_APIKEY;
 
 export const azure = {
     getCaption: async () => {
-        const imageInputElement = document.querySelector('#imageInput');
-        const altTextElement = document.querySelector('#altText');
-        const resetButtonElement = document.querySelector('#resetButton');
+        try {
+            const imageInputElement = document.querySelector('#imageInput');
+            const altTextElement = document.querySelector('#altText');
+            const resetButtonElement = document.querySelector('#resetButton');
 
-        let image = imageInputElement.files[0];
+            let image = imageInputElement.files[0];
 
-        function updateScreen() {
-            imageInputElement.style.display = 'none';
-            altTextElement.style.display = 'block';
-            resetButtonElement.style.display = 'block';
-        }
-
-        if(image.size > 20971520)
-        {
-            updateScreen();
-            return 'Image size too large. File must be smaller than 20971520 bytes or 20.97 MB.';
-        }
-        
-        function showImageOnScreen() {
-            let fileReader = new FileReader();
-            fileReader.readAsDataURL(image);
-            fileReader.onload = function() {
-                let imageElement = document.querySelector('#image');
-                imageElement.src = fileReader.result;
-                imageElement.style.margin = '5vh auto';
-                imageElement.style.display = 'block';
-                updateScreen();
+            function updateScreen() {
+                imageInputElement.style.display = 'none';
+                altTextElement.style.display = 'block';
+                resetButtonElement.style.display = 'block';
             }
-        };
-        showImageOnScreen();
 
-        let response = await fetch(endpoint, {
-            method: 'POST',
-            body: image,
-            headers: {
-                'Content-Type': 'application/octet-stream',
-                'Ocp-Apim-Subscription-Key': apiKey
-            },
-        });
+            if(image.size > 20971520)
+            {
+                updateScreen();
+                return 'Image size too large. File must be smaller than 20971520 bytes or 20.97 MB.';
+            }
+            
+            function showImageOnScreen() {
+                let fileReader = new FileReader();
+                fileReader.readAsDataURL(image);
+                fileReader.onload = function() {
+                    let imageElement = document.querySelector('#image');
+                    imageElement.src = fileReader.result;
+                    imageElement.style.margin = '5vh auto';
+                    imageElement.style.display = 'block';
+                    updateScreen();
+                }
+            };
+            showImageOnScreen();
 
-        const responseBody = await response.json();
+            let response = await fetch(endpoint, {
+                method: 'POST',
+                body: image,
+                headers: {
+                    'Content-Type': 'application/octet-stream',
+                    'Ocp-Apim-Subscription-Key': apiKey
+                },
+            });
 
-        return responseBody.captionResult.text;
+            const responseBody = await response.json();
+
+            return responseBody.captionResult.text;
+        } catch(error) {
+            document.querySelector('#imageInput').style.display = 'none';
+            document.querySelector('#altText').style.display = 'block';
+            document.querySelector('#resetButton').style.display = 'block';
+            
+            return error;
+        }
     }
 };
