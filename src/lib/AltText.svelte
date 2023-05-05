@@ -64,7 +64,13 @@ function resetScreen()
     #resetButton {
         display: none;
         margin: 5vh auto;
-        width: 7vw;
-        height: 7vh;
+        min-width: 7vw;
+        min-height: 7vh;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #imageInput, #altTextBox {
+            border-color: #f9f9f9;
+        }
     }
 </style>
