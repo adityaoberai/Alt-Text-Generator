@@ -35,14 +35,15 @@ function resetScreen()
 
 <style>
     #imageInput {
-        max-width: 80vw;
-        margin: 5vh auto;
+        max-width: 70vw;
+        margin: 5vh 0vw;
         display: block;
     }
 
     img {
         display: none;
-        max-width: 55vw;
+        max-width: 70vw;
+        max-height: 40vh;
     }
 
     #altText {
@@ -52,7 +53,7 @@ function resetScreen()
         padding: 3vh 0;
         border: 2px solid #242424;
         border-radius: 10px;
-        max-width: 55vw;
+        max-width: 70vw;
     }
 
     #altTextBox {
