@@ -15,21 +15,11 @@
 }
 
 body {
-
+  max-width: 100vw;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 700px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.card {
-  padding: 2em;
 }
 
 #app {
@@ -57,7 +47,7 @@ input[type=file]:focus-visible {
 
 button {
   border-radius: 8px;
-  border: 1.5px solid transparent;
+  border: 1.5px solid #f9f9f9;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -78,10 +68,9 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+
   button {
     background-color: #f9f9f9;
+    border-color: #242424;
   }
 }

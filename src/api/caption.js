@@ -1,8 +1,9 @@
 // @ts-nocheck
+
 const endpoint = import.meta.env.VITE_AZURECV_ENDPOINT + 'computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption';
 const apiKey = import.meta.env.VITE_AZURECV_APIKEY;
 
-export const azure = {
+export const api = {
     getCaption: async () => {
         try {
             const imageInputElement = document.querySelector('#imageInput');

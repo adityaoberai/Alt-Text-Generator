@@ -11,5 +11,13 @@
 </main>
 
 <style>
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    max-width: 80vw;
+  }
 
+  p {
+    max-width: 80vw;
+  }
 </style>

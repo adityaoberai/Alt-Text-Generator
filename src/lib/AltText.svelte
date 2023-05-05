@@ -1,12 +1,12 @@
 <script>
 // @ts-nocheck
 
-import { azure } from '../api/azure'
+import { api } from '../api/caption'
 
 let altText = 'Alt text will load here shortly...';
 
 async function generateAltText() {
-    altText = await azure.getCaption();
+    altText = await api.getCaption();
 }
 
 function resetScreen()
@@ -35,13 +35,15 @@ function resetScreen()
 
 <style>
     #imageInput {
-        margin: 5vh auto;
+        max-width: 70vw;
+        margin: 5vh 0vw;
         display: block;
     }
 
     img {
         display: none;
-        max-width: 600px;
+        max-width: 70vw;
+        max-height: 40vh;
     }
 
     #altText {
@@ -51,6 +53,7 @@ function resetScreen()
         padding: 3vh 0;
         border: 2px solid #242424;
         border-radius: 10px;
+        max-width: 70vw;
     }
 
     #altTextBox {
@@ -64,5 +67,13 @@ function resetScreen()
     #resetButton {
         display: none;
         margin: 5vh auto;
+        min-width: 7vw;
+        min-height: 7vh;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #imageInput, #altText {
+            border-color: #f9f9f9;
+        }
     }
 </style>
