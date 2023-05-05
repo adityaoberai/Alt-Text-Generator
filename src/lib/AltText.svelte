@@ -36,7 +36,7 @@ function resetScreen()
 <style>
     #imageInput {
         max-width: 70vw;
-        margin: 5vh 0vw;
+        margin: 5vh auto;
         display: block;
     }
 
