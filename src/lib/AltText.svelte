@@ -1,12 +1,12 @@
 <script>
 // @ts-nocheck
 
-import { azure } from '../api/azure'
+import { api } from '../api/caption'
 
 let altText = 'Alt text will load here shortly...';
 
 async function generateAltText() {
-    altText = await azure.getCaption();
+    altText = await api.getCaption();
 }
 
 function resetScreen()
@@ -41,7 +41,7 @@ function resetScreen()
 
     img {
         display: none;
-        max-width: 600px;
+        max-width: 55vw;
     }
 
     #altText {
@@ -64,5 +64,7 @@ function resetScreen()
     #resetButton {
         display: none;
         margin: 5vh auto;
+        width: 7vw;
+        height: 7vh;
     }
 </style>
