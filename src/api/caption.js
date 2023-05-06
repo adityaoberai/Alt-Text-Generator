@@ -8,14 +8,14 @@ export const api = {
         try {
             const imageInputElement = document.querySelector('#imageInput');
             const altTextElement = document.querySelector('#altText');
-            const resetButtonElement = document.querySelector('#resetButton');
+            const buttonElements = document.querySelector('#buttons');
 
             let image = imageInputElement.files[0];
 
             function updateScreen() {
                 imageInputElement.style.display = 'none';
                 altTextElement.style.display = 'block';
-                resetButtonElement.style.display = 'block';
+                buttonElements.style.display = 'block';
             }
 
             if(image.size > 20971520)
@@ -53,6 +53,7 @@ export const api = {
             document.querySelector('#imageInput').style.display = 'none';
             document.querySelector('#altText').style.display = 'block';
             document.querySelector('#resetButton').style.display = 'block';
+            document.querySelector('#regenerateButton').style.display = 'block';
             
             return error;
         }
