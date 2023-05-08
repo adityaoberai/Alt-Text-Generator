@@ -1,8 +1,5 @@
 // @ts-nocheck
 
-const endpoint = import.meta.env.VITE_AZURECV_ENDPOINT + 'computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption';
-const apiKey = import.meta.env.VITE_AZURECV_APIKEY;
-
 export const api = {
     getCaption: async () => {
         try {
@@ -37,18 +34,17 @@ export const api = {
             };
             showImageOnScreen();
 
-            let response = await fetch(endpoint, {
+            let response = await fetch('/api/alttext', {
                 method: 'POST',
                 body: image,
                 headers: {
-                    'Content-Type': 'application/octet-stream',
-                    'Ocp-Apim-Subscription-Key': apiKey
+                    'Content-Type': 'application/octet-stream'
                 },
             });
 
             const responseBody = await response.json();
 
-            return responseBody.captionResult.text;
+            return responseBody.message;
         } catch(error) {
             document.querySelector('#imageInput').style.display = 'none';
             document.querySelector('#altText').style.display = 'block';

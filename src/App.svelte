@@ -1,5 +1,5 @@
 <script>
-  import AltText from './lib/AltText.svelte'
+  import AltText from './components/AltText.svelte'
 </script>
 
 <main>

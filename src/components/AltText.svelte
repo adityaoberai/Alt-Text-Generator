@@ -1,7 +1,7 @@
 <script>
 // @ts-nocheck
 
-import { api } from '../api/caption'
+import { api } from '../lib/caption'
 
 let altText = 'Alt text will load here shortly...';
 
