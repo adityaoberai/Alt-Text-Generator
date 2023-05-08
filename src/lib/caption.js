@@ -15,10 +15,10 @@ export const api = {
                 resetButtonElement.style.display = 'block';
             }
 
-            if(image.size > 20971520)
+            if(image.size > 4718592)
             {
                 updateScreen();
-                return 'Image size too large. File must be smaller than 20971520 bytes or 20.97 MB.';
+                return 'Image size too large. File must be smaller than 4718592 bytes or 4.5 MB.';
             }
             
             function showImageOnScreen() {
@@ -49,7 +49,7 @@ export const api = {
             document.querySelector('#imageInput').style.display = 'none';
             document.querySelector('#altText').style.display = 'block';
             document.querySelector('#resetButton').style.display = 'block';
-            
+            console.log(error);
             return error;
         }
     }
