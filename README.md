@@ -10,7 +10,7 @@
 
 ## Demo Recording
 
-https://user-images.githubusercontent.com/31401437/235306227-ad0e5f3a-1533-4d59-ad6b-32cdfd6b1a32.mp4
+https://github.com/adityaoberai/Alt-Text-Generator/assets/31401437/cdf2ce3c-0c72-47e0-bab2-8bac8e0cd4cc
 
 ## Steps to Run Locally
 
