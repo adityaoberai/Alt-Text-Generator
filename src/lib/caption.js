@@ -48,7 +48,7 @@ export const api = {
             document.querySelector('#altText').style.display = 'block';
             document.querySelector('#resetButton').style.display = 'block';
             console.log(error);
-            return error;
+            return error.message;
         }
     }
 };

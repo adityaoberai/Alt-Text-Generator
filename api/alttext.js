@@ -14,9 +14,9 @@ export default async function alttext (request, response) {
           'Ocp-Apim-Subscription-Key': apiKey
       },
     });
-
     let azureResponseBody = await azureResponse.json();
-
+    
+    console.log(azureResponseBody.captionResult);
     response.status(200).json({
       message: azureResponseBody.captionResult.text
     });
