@@ -21,8 +21,9 @@ export default async function alttext (request, response) {
       message: azureResponseBody.captionResult.text
     });
   } catch(error) {
-    response.status(400).json({
-      message: error
+    console.error(error)
+    response.status(500).json({
+      message: error.message
     });
   }
 }

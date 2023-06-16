@@ -41,9 +41,7 @@ export const api = {
                     'Content-Type': 'application/octet-stream'
                 },
             });
-
             const responseBody = await response.json();
-
             return responseBody.message;
         } catch(error) {
             document.querySelector('#imageInput').style.display = 'none';
