@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 export default async function alttext (request, response) {
   try {
-    let endpoint = process.env.AZURECV_ENDPOINT + 'computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption';
+    let endpoint = process.env.AZURECV_ENDPOINT + 'computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&gender-neutral-caption=true';
     let apiKey = process.env.AZURECV_APIKEY;
     let image = request.body;
 
