@@ -28,6 +28,19 @@ body {
   text-align: center;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.align-main {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
 input[type=file] {
   border-radius: 8px;
   border: 1.5px solid #242424;
@@ -54,6 +67,8 @@ button {
   font-family: inherit;
   background-color: #242424;
   transition: border-color 0.25s;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 button:hover {
   border-color: #646cff;
@@ -61,6 +76,36 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.footer {
+  display: block;
+  border-top: 2px solid #f9f9f9;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 5vw;
+  text-align: center;
+}
+
+.footer p {
+  padding: 0 5vw;
+  line-height: 2.5rem;
+}
+
+.footer a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid #f9f9f9;
+  border-radius: 0.5rem;
+  color: #f9f9f9;
+  transition-duration: 0.3s;
+  white-space: nowrap;
+}
+
+.footer a:hover {
+  background-color: #f9f9f9;
+  color: #242424;
 }
 
 @media (prefers-color-scheme: light) {
@@ -72,5 +117,19 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
     border-color: #242424;
+  }
+
+  .footer {
+    border-top: 2px solid #242424;
+  }
+
+  .footer a {
+    border-color:  #242424;
+    color: #242424;
+  }
+  
+  .footer a:hover {
+    background-color: #242424;
+    color: #f9f9f9;
   }
 }
