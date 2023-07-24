@@ -59,7 +59,7 @@ function resetScreen()
 
     #altTextBox {
         display: inline-block;
-        padding: 1vh 1vw;
+        padding: 1vh 5vw;
         text-align: center;
         vertical-align: middle;
         font-size: large;

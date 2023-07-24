@@ -84,12 +84,12 @@ button:focus-visible {
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 0 10vw;
+  margin: 0 5vw;
   text-align: center;
 }
 
 .footer p {
-  padding: 0 10vw;
+  padding: 0 5vw;
   line-height: 2.5rem;
 }
 
