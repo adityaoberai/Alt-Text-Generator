@@ -28,6 +28,10 @@ body {
   text-align: center;
 }
 
+main {
+  display: block;
+}
+
 input[type=file] {
   border-radius: 8px;
   border: 1.5px solid #242424;
@@ -63,6 +67,36 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.footer {
+  border-top: 2px solid #f9f9f9;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 10vw;
+  text-align: center;
+}
+
+.footer p {
+  padding: 0 10vw;
+  line-height: 3rem;
+}
+
+.footer a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid #f9f9f9;
+  border-radius: 0.5rem;
+  color: #f9f9f9;
+  transition-duration: 0.3s;
+}
+
+.footer a:hover {
+  background-color: #f9f9f9;
+  color: #242424;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -72,5 +106,19 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
     border-color: #242424;
+  }
+
+  .footer {
+    border-top: 2px solid #242424;
+  }
+
+  .footer a {
+    border-color:  #242424;
+    color: #242424;
+  }
+  
+  .footer a:hover {
+    background-color: #242424;
+    color: #f9f9f9;
   }
 }

@@ -8,7 +8,12 @@
   <p>Generate alt text for your images and help make the internet more accessible!</p>
 
   <AltText />
+  
+  <div class="footer">
+    <p>Support this project by <a href="https://github.com/adityaoberai/Alt-Text-Generator" target="_blank">starring ⭐</a> and <a href="https://github.com/sponsors/adityaoberai" target="_blank">sponsoring 💸</a> on GitHub</p>
+  </div>
 </main>
+
 
 <style>
   h1 {
