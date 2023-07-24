@@ -3,16 +3,17 @@
 </script>
 
 <main>
-  <h1>Alt Text Generator</h1>
+  <div class="align-main">
+    <h1>Alt Text Generator</h1>
 
-  <p>Generate alt text for your images and help make the internet more accessible!</p>
-
-  <AltText />
+    <p>Generate alt text for your images and help make the internet more accessible!</p>
   
-  <div class="footer">
-    <p>Support this project by <a href="https://github.com/adityaoberai/Alt-Text-Generator" target="_blank">starring ⭐</a> and <a href="https://github.com/sponsors/adityaoberai" target="_blank">sponsoring 💸</a> on GitHub</p>
+    <AltText />
   </div>
 </main>
+<div class="footer">
+  <p>Support this project by <a href="https://github.com/adityaoberai/Alt-Text-Generator" target="_blank">starring ⭐</a> and <a href="https://github.com/sponsors/adityaoberai" target="_blank">sponsoring 💸</a> on GitHub</p>
+</div>
 
 
 <style>

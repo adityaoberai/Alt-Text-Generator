@@ -47,12 +47,13 @@ function resetScreen()
     }
 
     #altText {
-        margin: 5vh auto;
+        margin: 0 auto;
         display: none;
         text-align: center;
         padding: 3vh 0;
         border: 2px solid #242424;
         border-radius: 10px;
+        min-width: 25vw;
         max-width: 70vw;
     }
 

@@ -29,7 +29,16 @@ body {
 }
 
 main {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.align-main {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 input[type=file] {
@@ -58,6 +67,8 @@ button {
   font-family: inherit;
   background-color: #242424;
   transition: border-color 0.25s;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 button:hover {
   border-color: #646cff;
@@ -68,9 +79,8 @@ button:focus-visible {
 }
 
 .footer {
-  border-top: 2px solid #f9f9f9;
   display: block;
-  position: fixed;
+  border-top: 2px solid #f9f9f9;
   bottom: 0;
   left: 0;
   right: 0;
@@ -80,7 +90,7 @@ button:focus-visible {
 
 .footer p {
   padding: 0 10vw;
-  line-height: 3rem;
+  line-height: 2.5rem;
 }
 
 .footer a {
