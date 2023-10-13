@@ -23,3 +23,29 @@ https://github.com/adityaoberai/Alt-Text-Generator/assets/31401437/cdf2ce3c-0c72
 - Add your Azure Computer Vision endpoint and API key to the .env file
 - Add your environment variables to the Vercel project using `vercel env add ENV_VAR` command (replace `ENV_VAR` with your environment variables)
 - Run `vercel dev`
+
+## Using REST API
+
+### POST `/api/alttext`
+
+
+**Parameters**
+
+| Name              | Description                          | Location | Type                       |
+| ----------------- | ------------------------------------ | -------- | -------------------------- |
+| Content-Type      | The content type of the request body | Header   | `application/octet-stream` |
+| image             | Image to get alt text for            | Body     | Image (Binary data)        |
+
+**Request**
+
+Byte array in request body
+
+**Response**
+
+Sample Response:
+
+```json
+{
+  message: 'a black and white image of a couple of cards',
+}
+```
