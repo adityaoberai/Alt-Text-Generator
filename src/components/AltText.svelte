@@ -19,6 +19,12 @@ function resetScreen()
     altText = 'Alt text will load here shortly...';
 }
 
+window.addEventListener("paste", async(e) => {
+    var imageInput = document.querySelector('#imageInput');
+    imageInput.files = e.clipboardData.files;
+    await generateAltText();
+});
+
 </script>
 
 <input type="file" id="imageInput" accept="image/*" on:input={generateAltText}>
