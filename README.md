@@ -46,6 +46,6 @@ Sample Response:
 
 ```json
 {
-  message: 'a black and white image of a couple of cards',
+  "message": "a black and white image of a couple of cards"
 }
 ```
