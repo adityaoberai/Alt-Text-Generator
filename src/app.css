@@ -28,6 +28,24 @@ body {
   text-align: center;
 }
 
+@media screen and (min-width: 769px) {
+  .sponsor-image {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .sponsor-image {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sponsor-image {
+    width: 100%;
+  }
+}
+
 main {
   display: flex;
   justify-content: center;

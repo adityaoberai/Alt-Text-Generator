@@ -2,6 +2,12 @@
   import AltText from './components/AltText.svelte'
 </script>
 
+<section id="sponsor">
+  <a class="sponsor-image" href="https://getautoseo.com/image-alt-text-generator" target="_blank">
+    <img src="/sponsor.png" alt="AutoSEO Image Alt Text Generator">
+  </a>
+</section>
+
 <main>
   <div class="align-main">
     <h1>Alt Text Generator</h1>
