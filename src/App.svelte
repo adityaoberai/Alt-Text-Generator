@@ -5,11 +5,11 @@
 <main>
   <div class="sponsor align-main">
     <label class="sponsor-label" for="sponsor-link">
-      Thank you to our sponsor!
-      <a id="sponsor-link" class="sponsor-link" href="https://getautoseo.com/image-alt-text-generator" target="_blank">
-        <img class="sponsor-image" src="/sponsor.png" alt="AutoSEO Alt Text Generator">
-      </a>
+      Thank you to our sponsor, AutoSEO!
     </label>
+    <a id="sponsor-link" class="sponsor-link" href="https://getautoseo.com/image-alt-text-generator" target="_blank">
+      <img class="sponsor-image" src="/sponsor.png" alt="AutoSEO Alt Text Generator">
+    </a>
   </div>
 
   <div class="align-main">
@@ -40,5 +40,43 @@
   .footer p {
     max-width: 80vw;
     font-size: 1rem;
+  }
+
+  .sponsor {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid;
+    margin: 2rem 0;
+  }
+
+  .sponsor-label {
+    font-size: 1rem;
+    display: flex;
+    text-align: left;
+    margin: 0.25rem 0;
+  }
+
+  .sponsor-link, .sponsor a {
+    display: block;
+  }
+
+  @media screen and (min-width: 1201px) {
+    .sponsor-image {
+      width: 25vw;
+    }
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 1200px) {
+    .sponsor-image {
+      width: 65vw;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .sponsor-image {
+      width: 90vw;
+    }
   }
 </style>

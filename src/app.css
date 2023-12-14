@@ -21,43 +21,10 @@ body {
 
 #app {
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
-
-.sponsor {
-  display: flex;
-  flex-direction: column;
-}
-.sponsor-label {
-  font-size: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1.5px solid;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-@media screen and (min-width: 1201px) {
-  .sponsor-image {
-    width: 25vw;
-  }
-}
-
-@media screen and (min-width: 601px) and (max-width: 1200px) {
-  .sponsor-image {
-    width: 65vw;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .sponsor-image {
-    width: 90vw;
-  }
 }
 
 main {
