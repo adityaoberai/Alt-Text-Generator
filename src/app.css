@@ -41,6 +41,10 @@ main {
   align-self: center;
 }
 
+.sponsor-link {
+  display: block;
+}
+
 input[type=file] {
   border-radius: 8px;
   border: 1.5px solid #242424;
