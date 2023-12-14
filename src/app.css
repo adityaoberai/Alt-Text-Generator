@@ -45,8 +45,6 @@ main {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border-radius: 8px;
-  border: 1.5px solid;
   margin: 2rem 0;
 }
 

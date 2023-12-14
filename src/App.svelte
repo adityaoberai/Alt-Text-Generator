@@ -5,7 +5,7 @@
 <main>
   <div class="sponsor align-main">
     <label class="sponsor-label" for="sponsor-link">
-      Thank you to our sponsor, AutoSEO!
+      <b>Thank you to our sponsor, AutoSEO!</b>
     </label>
     <div>
       <a href="https://getautoseo.com/image-alt-text-generator" target="_blank">
