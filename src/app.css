@@ -41,7 +41,27 @@ main {
   align-self: center;
 }
 
-.sponsor-link {
+.sponsor {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1.5px solid;
+  margin: 2rem 0;
+}
+
+.sponsor-label {
+  font-size: 1rem;
+  display: flex;
+  text-align: left;
+  margin: 0.25rem 0;
+}
+
+.sponsor div {
+  display: block;
+}
+
+.sponsor div a, .sponsor div a img {
   display: block;
 }
 
