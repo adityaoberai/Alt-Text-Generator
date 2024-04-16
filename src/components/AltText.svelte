@@ -11,7 +11,7 @@ function resetScreen()
 window.addEventListener("paste", async(e) => {
     var imageInput = document.querySelector('#imageInput');
     imageInput.files = e.clipboardData.files;
-    await generateAltText();
+    showImageOnScreen();
 });
 
 function showImageOnScreen() {
