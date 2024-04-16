@@ -35,7 +35,6 @@ function showImageOnScreen() {
         imageElement.style.margin = '5vh auto';
         imageElement.style.display = 'block';
         updateScreen();
-        console.log(imageElement.src);
         generateAltText(imageElement.src);
     }
 };
