@@ -3,6 +3,7 @@
 </a>
 
 # Alt Text Generator
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=adityaoberai&name=Alt-Text-Generator)](https://repo-rater.eddiehub.io/rate?owner=adityaoberai&name=Alt-Text-Generator)
 
 ## Description
 
