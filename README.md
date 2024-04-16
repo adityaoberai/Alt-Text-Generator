@@ -7,7 +7,7 @@
 
 ## Description
 
-**Svelte** app that uses **Azure OpenAI Service (GPT-4 Turbo with Vision)** and a **Vercel Serverless Function** to analyse an image and provide you with a caption to use as alt text!
+**Vite** + **Svelte** app that uses **Azure OpenAI Service (GPT-4 Turbo with Vision)** and a **Vercel Serverless Function** to analyse an image and provide you with a caption to use as alt text!
 
 ## Demo Recording
 
@@ -28,7 +28,6 @@ https://github.com/adityaoberai/Alt-Text-Generator/assets/31401437/cdf2ce3c-0c72
 ## Using REST API
 
 ### POST `/api/alttext`
-
 
 **Parameters**
 
