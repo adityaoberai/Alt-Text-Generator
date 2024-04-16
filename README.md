@@ -6,7 +6,7 @@
 
 ## Description
 
-**Svelte** app that uses **Azure Cognitive Services** and a **Vercel Serverless Function** to analyse an image and provide you with a caption to use as alt text!
+**Svelte** app that uses **Azure OpenAI Service (GPT-4 Turbo with Vision)** and a **Vercel Serverless Function** to analyse an image and provide you with a caption to use as alt text!
 
 ## Demo Recording
 
@@ -14,8 +14,8 @@ https://github.com/adityaoberai/Alt-Text-Generator/assets/31401437/cdf2ce3c-0c72
 
 ## Steps to Run Locally
 
-- Create a [Microsoft Azure account](https://azure.microsoft.com/free/cognitive-services/), followed by a [Computer Vision Resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
-    - Make sure to choose one of the following Azure regions: `East US`, `France Central`, `Korea Central`, `North Europe`, `Southeast Asia`, `West Europe`, `West US` (since we're using Image Analysis 4.0, which is in preview)
+- Create a [Microsoft Azure account](https://azure.microsoft.com/free/), followed by a [OpenAI resource with Vision preview](https://learn.microsoft.com/en-us/azure/ai-services/openai/gpt-v-quickstart?source=recommendations&tabs=image%2Ccommand-line&pivots=rest-api)
+    - Make sure to choose one of the following Azure regions: `Australia East`, `Japan East`, `Sweden Central`, `Switzerland North`, and `West US` (since we're using the `gpt-4`, `vision-preview` model, which is in preview)
 - Install [Vercel CLI](https://vercel.com/docs/cli)
 - Clone this repository
 - Run `npm install`
@@ -31,14 +31,18 @@ https://github.com/adityaoberai/Alt-Text-Generator/assets/31401437/cdf2ce3c-0c72
 
 **Parameters**
 
-| Name              | Description                          | Location | Type                       |
-| ----------------- | ------------------------------------ | -------- | -------------------------- |
-| Content-Type      | The content type of the request body | Header   | `application/octet-stream` |
-| image             | Image to get alt text for            | Body     | Image (Binary data)        |
+| Name              | Description                          | Location | Type               |
+| ----------------- | ------------------------------------ | -------- | ------------------ |
+| Content-Type      | The content type of the request body | Header   | `application/json` |
+| image             | Image to get alt text for            | Body     | Base64 string      |
 
 **Request**
 
-Byte array in request body
+```json
+{
+  "image": "data:image/jpeg;base64,/9j/4f/+RXhpZgAASUkqAAgAAA..."
+}
+```
 
 **Response**
 
@@ -46,6 +50,6 @@ Sample Response:
 
 ```json
 {
-  "message": "a black and white image of a couple of cards"
+  "message": "A group of individuals focused on their laptops at a dimly-lit indoor event, with some engaging in discussion while others are intently viewing their screens. Visible stickers and branding on the laptops suggest a tech-oriented gathering."
 }
 ```

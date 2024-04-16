@@ -1,22 +1,11 @@
 <script>
 // @ts-nocheck
 
-import { api } from '../lib/caption'
-
 let altText = 'Alt text will load here shortly...';
-
-async function generateAltText() {
-    altText = await api.getCaption();
-}
 
 function resetScreen()
 {
-    document.querySelector('#imageInput').value = '';
-    document.querySelector('#imageInput').style.display = 'block';
-    document.querySelector('#image').style.display = 'none';
-    document.querySelector('#altText').style.display = 'none';
-    document.querySelector('#resetButton').style.display = 'none';
-    altText = 'Alt text will load here shortly...';
+    location.reload();
 }
 
 window.addEventListener("paste", async(e) => {
@@ -25,11 +14,59 @@ window.addEventListener("paste", async(e) => {
     await generateAltText();
 });
 
+function showImageOnScreen() {
+    const imageInputElement = document.querySelector('#imageInput');
+    const altTextElement = document.querySelector('#altText');
+    const resetButtonElement = document.querySelector('#resetButton');
+
+    function updateScreen() {
+        imageInputElement.style.display = 'none';
+        altTextElement.style.display = 'block';
+        resetButtonElement.style.display = 'block';
+    }
+
+    let image = imageInputElement.files[0];
+
+    let fileReader = new FileReader();
+    fileReader.readAsDataURL(image);
+    fileReader.onload = function() {
+        let imageElement = document.querySelector('#imageToCheck');
+        imageElement.src = fileReader.result;
+        imageElement.style.margin = '5vh auto';
+        imageElement.style.display = 'block';
+        updateScreen();
+        console.log(imageElement.src);
+        generateAltText(imageElement.src);
+    }
+};
+
+async function generateAltText(imageBase64) {
+    try {        
+        let response = await fetch('/api/alttext', {
+            method: 'POST',
+            body: JSON.stringify({ 
+                image: imageBase64
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        const responseBody = await response.json();
+        altText = responseBody.message;
+    } catch(error) {
+        document.querySelector('#imageInput').style.display = 'none';
+        document.querySelector('#altText').style.display = 'block';
+        document.querySelector('#resetButton').style.display = 'block';
+        console.error(error);
+        altText = "Error occured:\n\n" + error.message;
+    }
+}
+
 </script>
 
-<input type="file" id="imageInput" accept="image/*" on:input={generateAltText}>
+<input type="file" id="imageInput" accept="image/*" on:input={showImageOnScreen}>
 
-<img id="image" src="" alt={altText}>
+<img id="imageToCheck" src="" alt={altText}>
 
 <div id="altText">
     <p id="altTextBox">

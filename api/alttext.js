@@ -1,24 +1,34 @@
-import fetch from 'node-fetch';
+import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
 
 export default async function alttext (request, response) {
   try {
-    let endpoint = process.env.AZURECV_ENDPOINT + 'computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&gender-neutral-caption=true';
-    let apiKey = process.env.AZURECV_APIKEY;
-    let image = request.body;
-
-    let azureResponse = await fetch(endpoint, {
-      method: 'POST',
-      body: image,
-      headers: {
-          'Content-Type': 'application/octet-stream',
-          'Ocp-Apim-Subscription-Key': apiKey
-      },
-    });
-    let azureResponseBody = await azureResponse.json();
+    const endpoint = process.env.AZUREOPENAI_ENDPOINT;
+    const apiKey = process.env.AZUREOPENAI_APIKEY;
+    const client = new OpenAIClient(endpoint, new AzureKeyCredential(apiKey));
     
-    console.log(azureResponseBody.captionResult);
+    const image = request.body.image;
+
+    const deploymentName = process.env.AZUREOPENAI_DEPLOYMENTNAME;
+    const messages = [{ role: "user", content: [  
+    { 
+        type: "text", 
+        text: "Generate alt text for the following image (do not add any extra text at the start or the end of the alt text):" 
+    },
+    { 
+        type: "image_url",
+        imageUrl: {
+          url: image,
+          detail: "auto"
+        }
+    }]}];
+
+    const result = await client.getChatCompletions(deploymentName, messages, { maxTokens: 200 });
+    console.log(result.choices[0].message?.content);
+
+    let alttext = result.choices[0].message?.content;
+
     response.status(200).json({
-      message: azureResponseBody.captionResult.text
+      message: alttext
     });
   } catch(error) {
     console.error(error)
