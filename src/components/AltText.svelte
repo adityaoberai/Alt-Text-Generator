@@ -50,13 +50,20 @@ async function generateAltText(imageBase64) {
                 'Content-Type': 'application/json'
             },
         });
-        console.log(response.headers);
-        if(response.status !== 200) {
-            console.log(response);
-            throw new Error(response.statusText);
-        } else {
-            const responseBody = await response.json();
-            altText = responseBody.message;
+        switch(response.status) {
+            case 413: 
+                throw new Error("Image is too large, please send files smaller than 4.5 MB.");
+
+            case 504:
+                throw new Error("Request timed out, please try again.");
+
+            case 200:
+                const responseBody = await response.json();
+                altText = responseBody.message;
+                break;
+
+            default: 
+                throw new Error("An unknown error occured, please try again.");
         }
     } catch(error) {
         document.querySelector('#imageInput').style.display = 'none';
@@ -66,7 +73,6 @@ async function generateAltText(imageBase64) {
         altText = "Error occured:\n\n" + error.message;
     }
 }
-
 </script>
 
 <input type="file" id="imageInput" accept="image/*" on:input={showImageOnScreen}>
