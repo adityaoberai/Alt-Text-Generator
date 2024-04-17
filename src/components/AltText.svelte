@@ -51,10 +51,12 @@ async function generateAltText(imageBase64) {
             },
         });
         switch(response.status) {
-            case 413: 
+            case 413:
+                console.error(response);
                 throw new Error("Image is too large, please send files smaller than 4.5 MB.");
 
             case 504:
+                console.error(response);
                 throw new Error("Request timed out, please try again.");
 
             case 200:
@@ -62,7 +64,8 @@ async function generateAltText(imageBase64) {
                 altText = responseBody.message;
                 break;
 
-            default: 
+            default:
+                console.error(response);
                 throw new Error("An unknown error occured, please try again.");
         }
     } catch(error) {
