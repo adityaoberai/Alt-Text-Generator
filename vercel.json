@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/alttext.js": {
+      "maxDuration": 60
+    }
+  }
+}
