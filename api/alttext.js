@@ -1,5 +1,7 @@
 import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
 
+export const maxDuration = 60;
+
 export default async function alttext (request, response) {
   try {
     const endpoint = process.env.AZUREOPENAI_ENDPOINT;
