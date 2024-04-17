@@ -50,8 +50,14 @@ async function generateAltText(imageBase64) {
                 'Content-Type': 'application/json'
             },
         });
-        const responseBody = await response.json();
-        altText = responseBody.message;
+        console.log(response.headers);
+        if(response.status !== 200) {
+            console.log(response);
+            throw new Error(response.statusText);
+        } else {
+            const responseBody = await response.json();
+            altText = responseBody.message;
+        }
     } catch(error) {
         document.querySelector('#imageInput').style.display = 'none';
         document.querySelector('#altText').style.display = 'block';
