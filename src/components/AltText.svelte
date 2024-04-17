@@ -19,12 +19,6 @@ function showImageOnScreen() {
     const altTextElement = document.querySelector('#altText');
     const resetButtonElement = document.querySelector('#resetButton');
 
-    function updateScreen() {
-        imageInputElement.style.display = 'none';
-        altTextElement.style.display = 'block';
-        resetButtonElement.style.display = 'block';
-    }
-
     let image = imageInputElement.files[0];
 
     let fileReader = new FileReader();
@@ -34,7 +28,11 @@ function showImageOnScreen() {
         imageElement.src = fileReader.result;
         imageElement.style.margin = '5vh auto';
         imageElement.style.display = 'block';
-        updateScreen();
+        
+        imageInputElement.style.display = 'none';
+        altTextElement.style.display = 'block';
+        resetButtonElement.style.display = 'block';
+
         generateAltText(imageElement.src);
     }
 };
@@ -73,7 +71,7 @@ async function generateAltText(imageBase64) {
         document.querySelector('#altText').style.display = 'block';
         document.querySelector('#resetButton').style.display = 'block';
         console.error(error);
-        altText = "Error occured:\n\n" + error.message;
+        altText = "Error occured: " + error.message;
     }
 }
 </script>
