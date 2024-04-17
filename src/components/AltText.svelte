@@ -14,10 +14,22 @@ window.addEventListener("paste", async(e) => {
     showImageOnScreen();
 });
 
+function copyAltText() {
+    const textToCopy = document.getElementById("altTextBox");
+    navigator.clipboard.writeText(textToCopy.innerText);
+
+    let copyButton = document.getElementById("copyButton");
+    copyButton.innerHTML = "Copied!";
+
+    setTimeout(() => {
+        copyButton.innerHTML = "Copy Text";
+    }, 2000);
+}
+
 function showImageOnScreen() {
     const imageInputElement = document.querySelector('#imageInput');
     const altTextElement = document.querySelector('#altText');
-    const resetButtonElement = document.querySelector('#resetButton');
+    const altTextButtonsElement = document.querySelector('#altTextButtons');
 
     let image = imageInputElement.files[0];
 
@@ -31,7 +43,7 @@ function showImageOnScreen() {
         
         imageInputElement.style.display = 'none';
         altTextElement.style.display = 'block';
-        resetButtonElement.style.display = 'block';
+        altTextButtonsElement.style.display = 'block';
 
         generateAltText(imageElement.src);
     }
@@ -69,7 +81,7 @@ async function generateAltText(imageBase64) {
     } catch(error) {
         document.querySelector('#imageInput').style.display = 'none';
         document.querySelector('#altText').style.display = 'block';
-        document.querySelector('#resetButton').style.display = 'block';
+        document.querySelector('#altTextButtons').style.display = 'block';
         console.error(error);
         altText = "Error occured: " + error.message;
     }
@@ -86,7 +98,14 @@ async function generateAltText(imageBase64) {
     </p>
 </div>
 
-<button id="resetButton" on:click={resetScreen}>Reset</button>
+<div id="altTextButtons">
+    <div class="altTextButtonsContainer">
+        <button id="copyButton" class="altTextButton" on:click={copyAltText}>Copy Text</button>
+        <button id="resetButton" class="altTextButton" on:click={resetScreen}>Reset Image</button>
+    </div>
+</div>
+
+
 
 <style>
     #imageInput {
@@ -120,16 +139,49 @@ async function generateAltText(imageBase64) {
         font-size: large;
     }
 
-    #resetButton {
+    #altTextButtons {
         display: none;
-        margin: 5vh auto;
-        min-width: 7vw;
+        text-align: center;
+    }
+
+    .altTextButtonsContainer {
+        display: flex;
+        gap: 5vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .altTextButton {
+        display: block;
+        margin: 5vh 0;
+        width: 12vw;
         min-height: 7vh;
+        text-align: center;
     }
 
     @media (prefers-color-scheme: dark) {
         #imageInput, #altText {
             border-color: #f9f9f9;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .altTextButtonsContainer {
+            flex-direction: column;
+            gap: 2vh;
+            margin: 5vh 0;
+        }
+
+        .altTextButton {
+            width: 20vw;
+            margin: 0 5vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .altTextButton {
+            width: 40vw;
+            margin: 0 5vw;
         }
     }
 </style>
