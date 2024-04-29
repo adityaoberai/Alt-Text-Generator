@@ -22,7 +22,7 @@ export default async function alttext (request, response) {
         }
     }]}];
 
-    const result = await client.getChatCompletions(deploymentName, messages, { maxTokens: 200 });
+    const result = await client.getChatCompletions(deploymentName, messages, { maxTokens: 100 });
     console.log(result.choices[0].message?.content);
 
     let alttext = result.choices[0].message?.content;
