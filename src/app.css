@@ -39,6 +39,7 @@ main {
   display: flex;
   flex-direction: column;
   align-self: center;
+  text-align: center;
 }
 
 .sponsor {

@@ -1,5 +1,6 @@
 <script>
   import AltText from './components/AltText.svelte'
+  import AzureLimitsExceeded from './components/AzureLimitsExceeded.svelte'
 </script>
 
 <main>
@@ -19,7 +20,7 @@
 
     <p>Generate alt text for your images and help make the internet more accessible!</p>
   
-    <AltText />
+    <AzureLimitsExceeded />
   </div>
 
   <div class="footer">
@@ -30,13 +31,11 @@
 <style>
   h1 {
     font-size: 4rem;
-    line-height: 1.1;
-    max-width: 80vw;
+    line-height: 1.1; 
   }
 
   p {
     font-size: 1.5rem;
-    max-width: 80vw;
   }
 
   .footer p {
