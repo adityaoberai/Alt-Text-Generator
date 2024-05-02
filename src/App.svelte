@@ -20,7 +20,7 @@
 
     <p>Generate alt text for your images and help make the internet more accessible!</p>
   
-    <AzureLimitsExceeded />
+    <AltText />
   </div>
 
   <div class="footer">

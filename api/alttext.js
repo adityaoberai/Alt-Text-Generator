@@ -1,14 +1,28 @@
-import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
+import { OpenAIClient, AzureKeyCredential, OpenAIKeyCredential } from "@azure/openai";
 
 export default async function alttext (request, response) {
   try {
-    const endpoint = process.env.AZUREOPENAI_ENDPOINT;
-    const apiKey = process.env.AZUREOPENAI_APIKEY;
-    const client = new OpenAIClient(endpoint, new AzureKeyCredential(apiKey));
+    let client;
+    let deploymentName;
+
+    switch(process.env.USE_METHOD){
+      case 'azureopenai': {
+        deploymentName = process.env.AZUREOPENAI_DEPLOYMENTNAME;
+        const endpoint = process.env.AZUREOPENAI_ENDPOINT;
+        const apiKey = process.env.AZUREOPENAI_APIKEY;
+        client= new OpenAIClient(endpoint, new AzureKeyCredential(apiKey)); 
+        break;
+      }
+      case 'openai': {
+        deploymentName = 'gpt-4-turbo';
+        const apiKey = process.env.OPENAI_APIKEY;
+        client= new OpenAIClient(new OpenAIKeyCredential(apiKey)); 
+        break;
+      }
+    }
     
     const image = request.body.image;
 
-    const deploymentName = process.env.AZUREOPENAI_DEPLOYMENTNAME;
     const messages = [{ role: "user", content: [  
     { 
         type: "text", 
