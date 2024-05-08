@@ -1,6 +1,7 @@
 <script>
   import AltText from './components/AltText.svelte'
   import AzureLimitsExceeded from './components/AzureLimitsExceeded.svelte'
+  import Teaser from './components/Teaser.svelte';
 </script>
 
 <main>
@@ -20,7 +21,7 @@
 
     <p>Generate alt text for your images and help make the internet more accessible!</p>
   
-    <AltText />
+    <Teaser />
   </div>
 
   <div class="footer">

@@ -25,18 +25,18 @@ export default async function alttext (request, response) {
 
     const messages = [{ role: "user", content: [  
     { 
-        type: "text", 
-        text: "Generate alt text for the following image (do not add any extra text at the start or the end of the alt text):" 
+      type: "text", 
+      text: "Generate alt text for the following image (do not add any extra text at the start or the end of the alt text):" 
     },
     { 
-        type: "image_url",
-        imageUrl: {
-          url: image,
-          detail: "auto"
-        }
+      type: "image_url",
+      imageUrl: {
+        url: image,
+        detail: "auto"
+      }
     }]}];
 
-    const result = await client.getChatCompletions(deploymentName, messages, { maxTokens: 100 });
+    const result = await client.getChatCompletions(deploymentName, messages, { maxTokens: 100, stream: false });
     console.log(result.choices[0].message?.content);
 
     let alttext = result.choices[0].message?.content;

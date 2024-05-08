@@ -35,7 +35,7 @@ function showImageOnScreen() {
 
     let fileReader = new FileReader();
     fileReader.readAsDataURL(image);
-    fileReader.onload = function() {
+    fileReader.onload = async () => {
         let imageElement = document.querySelector('#imageToCheck');
         imageElement.src = fileReader.result;
         imageElement.style.margin = '5vh auto';
@@ -49,12 +49,13 @@ function showImageOnScreen() {
     }
 };
 
-async function generateAltText(imageBase64) {
+async function generateAltText(imageUrl) {
     try {        
+        altText = 'Generating alt text...';
         let response = await fetch('/api/alttext', {
             method: 'POST',
             body: JSON.stringify({ 
-                image: imageBase64
+                image: imageUrl
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -70,13 +71,14 @@ async function generateAltText(imageBase64) {
                 throw new Error("Request timed out, please try again.");
 
             case 200:
-                const responseBody = await response.json();
+                var responseBody = await response.json();
                 altText = responseBody.message;
                 break;
 
             default:
                 console.error(response);
-                throw new Error("An unknown error occured, please try again.");
+                var responseBody = await response.json();
+                throw new Error(responseBody.message);
         }
     } catch(error) {
         document.querySelector('#imageInput').style.display = 'none';
@@ -137,6 +139,7 @@ async function generateAltText(imageBase64) {
         text-align: center;
         vertical-align: middle;
         font-size: large;
+        white-space: pre-line;
     }
 
     #altTextButtons {
