@@ -4,17 +4,6 @@
 </script>
 
 <main>
-  <div class="sponsor align-main">
-    <label class="sponsor-label" for="sponsor-link">
-      <b>Thank you to our sponsor, AutoSEO!</b>
-    </label>
-    <div>
-      <a href="https://getautoseo.com/image-alt-text-generator" target="_blank">
-        <img class="sponsor-image" src="/sponsor.png" alt="AutoSEO Alt Text Generator">
-      </a>
-    </div>
-  </div>
-
   <div class="align-main">
     <h1>Alt Text Generator</h1>
 
